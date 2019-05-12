@@ -1,0 +1,18 @@
+{
+  "name": "home-app",
+  "version": "1.0.0",
+  "description": "CLI for communication with home-hub",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "TaiNV",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "debug": "^4.1.1",
+    "inquirer": "^6.3.1",
+    "mdns": "^2.4.0",
+    "mqtt": "^2.18.8"
+  }
+}
