@@ -28,13 +28,16 @@ mainLoop = () => {
                 case 'search device': {
                     inquirer
                         .prompt([{
-                            type: 'input',
+                            type: 'list',
                             name: 'act',
-                            message: 'Enter action (stop: 0, start: 1) ..'
+                            message: 'Enter action ..',
+                            choices: [ 'start', 'stop' ]
                         }])
                         .then(answer => {
-                            if (mqttClient.connected)
-                                mqttClient.sendDevicesSearch(parseInt(answer.act));
+                            if (mqttClient.connected) {
+                                let act = answer.act === 'start' ? 1 : 0
+                                mqttClient.sendDevicesSearch(parseInt(act));
+                            }
                             console.log();
                             mainLoop();
                         })
